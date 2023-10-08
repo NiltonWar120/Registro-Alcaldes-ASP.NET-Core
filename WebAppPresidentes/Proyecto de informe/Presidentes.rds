@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Presidentes">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=LAPTOP-73T2OMK9;Initial Catalog=Presidentes</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>a9e49318-b593-4c36-816b-d11ef556ccd3</DataSourceID>
+</RptDataSource>

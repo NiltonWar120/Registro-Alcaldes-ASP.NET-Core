@@ -1,0 +1,50 @@
+﻿@model WebAppPresidentes.Models.Entidades.Conyuge
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Conyuge</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input asp-for="IdConyuge" type="Hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="NombreConyuge" class="control-label"></label>
+                <input asp-for="NombreConyuge" class="form-control" />
+                <span asp-validation-for="NombreConyuge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoConyuge" class="control-label"></label>
+                <input asp-for="ApellidoConyuge" class="form-control" />
+                <span asp-validation-for="ApellidoConyuge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label"></label>
+                <input asp-for="DNI" class="form-control" />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nacionalidad" class="control-label"></label>
+                <input asp-for="Nacionalidad" class="form-control" />
+                <span asp-validation-for="Nacionalidad" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a role="button" class="btn btn-success"
+                   asp-action="ListadoConyuge">Atras</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

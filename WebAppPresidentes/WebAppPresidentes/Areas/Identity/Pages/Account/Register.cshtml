@@ -1,0 +1,118 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-info card-outline">
+            <div class="card-header">
+                <h3 class="card-title text-dark">
+                    <span class="text-dark">
+                        <i class="fas fa-edit" arial-hidden="true"></i>
+                    </span>
+                    REGISTRAR USUARIO
+                </h3>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-2 align-self-center">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info">
+                            <i class="far fa-edit"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-bot-number text-dark">registrar</span>
+                            <span class=" text-dark">
+                                <i class="far fa-hand-point-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Usuario</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Nombres" class="form-control"
+                                                   autocomplete="Nombres" aria-required="true" />
+                                            <label>Nombres</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.APaterno" class="form-control"
+                                                   autocomplete="Apellido Paterno" aria-required="true" />
+                                            <label>APaterno</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.AMaterno" class="form-control"
+                                                   autocomplete="Apellido Materno" aria-required="true" />
+                                            <label>AMaterno</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.DNI" class="form-control"
+                                                   autocomplete="DNI" aria-required="true" />
+                                            <label>DNI</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Direccion" class="form-control"
+                                                   autocomplete="Direccion" aria-required="true" />
+                                            <label>Direccion</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                                            <label asp-for="Input.Email"></label>
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                                            <label asp-for="Input.Password"></label>
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                                            <label asp-for="Input.ConfirmPassword"></label>
+                                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                    </div>
+                                    <div class="col-4">
+                                        <center>
+                                            <div>
+                                                <button id="registerSubmit" type="submit"
+                                                        class="btn btn-success">
+                                                    <i class="fa fa-save"></i>
+                                                    Registrar User
+                                                </button>
+                                            </div>
+                                        </center>
+                                    </div>
+                                    <div class="col-4">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

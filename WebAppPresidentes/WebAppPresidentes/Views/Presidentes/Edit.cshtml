@@ -1,0 +1,71 @@
+﻿@model WebAppPresidentes.Models.Entidades.Presidentes
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Presidentes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input asp-for="IdPresidente" type="Hidden"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label"></label>
+                <input asp-for="DNI" class="form-control" />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sueldo" class="control-label"></label>
+                <input asp-for="Sueldo" class="form-control" />
+                <span asp-validation-for="Sueldo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Partido" class="control-label"></label>
+                <input asp-for="Partido" class="form-control" />
+                <span asp-validation-for="Partido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Conyuge</label>
+                <select asp-for="IdConyuge" class="form-control"
+                asp-items="@(new SelectList(ViewBag.LConyugue,"IdConyuge","NombreConyuge"))"></select>
+            </div>
+            <div class="form-group">
+                <label>Pais</label>
+                <select asp-for="IdPais" class="form-control"
+                asp-items="@(new SelectList(ViewBag.LPaises,"IdPais","NombrePais"))"></select>
+            </div>
+            <div class="form-group">
+                <label>Profesion</label>
+                <select asp-for="IdProfesion" class="form-control"
+                asp-items="@(new SelectList(ViewBag.LProfesion,"IdProfesion","NombreProfesion"))"></select>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a role="button" class="btn btn-success"
+                   asp-action="ListadoPaises">Atras</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,55 @@
+﻿@inject IAuthorizationService AuthorizationService
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="card card-info card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="text-dark">
+                            <i class="nav-icon fas fa-list"></i>
+                        </span>
+                        Listado de Presidentes con sus Antecedentes Policiales
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="table-info">
+                                <th><center><strong>Id</strong></center></th>
+                                <th><center><strong>Nombres</strong></center></th>
+                                <th><center><strong>Apellidos</strong></center></th>
+                                <th><center><strong>DNI</strong></center></th>
+                                <th><center><strong>Partido ´politico</strong></center></th>
+                                <th><center><strong>Antecendentes</strong></center></th>
+                                <th><center><strong>Opciones</strong></center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var db in ViewBag.Servicio)
+                            {
+                                <tr>
+                                    <td align="center">@db.IdPresidente</td>
+                                        <td align="center">@db.Nombre</td>
+                                        <td align="center">@db.Apellido</td>
+                                        <td align="center">@db.DNI</td>
+                                        <td align="center">@db.Partido</td>
+                                        <td align="center">@db.AntecedentesPoliciales</td>
+                                    <td>
+                                        <a class="btn btn-warning btn-sm text-white" role="button">
+                                            <i class="fa fa-eye text-white"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

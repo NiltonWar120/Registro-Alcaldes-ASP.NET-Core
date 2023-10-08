@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebAppPresidentes.Models.Entidades.Paises>
+
+<br>
+<h3>LISTADO DE PAISES</h3>
+<br>
+<form>
+    <div class="row">
+        <div class="col-3">
+            <input class="form-control input-sm" name="filterByNameio" placeholder="Buscar por Nombre">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary btn-sm">filtrar</button>
+        </div>
+
+        <div class="col-5">
+        </div>
+    </div>
+</form>
+
+<hr>
+<a class="btn btn-success btn-sm" role="button" asp-action="Create">Agregar</a>
+<br>
+<hr>
+
+<table class="table table-hover table-bordered table-sm">
+    <thead>
+        <tr class="table-info">
+            <th><center><strong>Id</strong></center></th>
+            <th><center><strong>Pais</strong></center></th>
+            <th><center><strong>Capital</strong></center></th>
+            <th><center><strong>idioma</strong></center></th>
+            <th><center><strong>Moneda</strong></center></th>
+            <th><center><strong>Opciones</strong></center></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">@item.IdPais</td>
+                <td align="left">@item.NombrePais</td>
+                <td align="left">@item.Capital</td>
+                <td align="left">@item.Idioma</td>
+                <td align="left">@item.Moneda</td>
+
+                <td>
+                    <center>
+                        <a class="btn btn-info btn-sm text-white" role="button" asp-action="Edit"
+                       asp-route-id="@item.IdPais">Edit</a>
+
+                        <a class="btn btn-warning btn-sm text-white" role="button"
+                       asp-action="Details" asp-route-id="@item.IdPais">Detalles</a>
+
+                        <a class="btn btn-danger btn-sm" role="button"
+                       asp-action="Delete" asp-route-id="@item.IdPais">Delete</a>
+                    </center>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

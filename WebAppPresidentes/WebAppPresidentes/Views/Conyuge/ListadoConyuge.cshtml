@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebAppPresidentes.Models.Entidades.Conyuge>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+
+<br>
+<h3>@Localizer["keyConyuge"]</h3>
+<br>
+<form>
+    <div class="row">
+        <div class="col-3">
+            <input class="form-control input-sm" name="filterByNameio" placeholder="Buscar por Nombre">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary btn-sm">filtrar</button>
+        </div>
+
+        <div class="col-5">
+            @await Component.InvokeAsync("Idioma")
+        </div>
+    </div>
+</form>
+
+<hr>
+<a class="btn btn-success btn-sm" role="button" asp-action="Create">Agregar</a>
+<br>
+<hr>
+
+<table class="table table-hover table-bordered table-sm">
+    <thead>
+        <tr class="table-info">
+            <th><center><strong>@Localizer["keyID"]</strong></center></th>
+            <th><center><strong>@Localizer["keyNombres"]</strong></center></th>
+            <th><center><strong>@Localizer["keyApellidos"]</strong></center></th>
+            <th><center><strong>@Localizer["keyDNI"]</strong></center></th>
+            <th><center><strong>@Localizer["keyNacionalidad"]</strong></center></th>
+            <th><center><strong>@Localizer["keyOpciones"]</strong></center></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">@item.IdConyuge</td>
+                <td align="left">@item.NombreConyuge</td>
+                <td align="left">@item.ApellidoConyuge</td>
+                <td align="left">@item.DNI</td>
+                <td align="left">@item.Nacionalidad</td>
+
+                <td>
+                    <center>
+                        <a class="btn btn-info btn-sm text-white" role="button" asp-action="Edit"
+                       asp-route-id="@item.IdConyuge">Edit</a>
+
+                        <a class="btn btn-warning btn-sm text-white" role="button"
+                       asp-action="Details" asp-route-id="@item.IdConyuge">Detalles</a>
+
+                        <a class="btn btn-danger btn-sm" role="button"
+                       asp-action="Delete" asp-route-id="@item.IdConyuge">Delete</a>
+                    </center>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
